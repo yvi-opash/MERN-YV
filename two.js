@@ -1,3 +1,6 @@
+//Find max & min from an array 
+
+
 function min_max(a){
     let max = a[0];
     let min = a[0];

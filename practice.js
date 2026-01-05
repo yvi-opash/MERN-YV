@@ -1,9 +1,9 @@
-function multiply(num1 , num2){
+function multiply(num1 , num2 ){
     console.log( num1 * num2);
    return 0; 
 }
 
-multiply(15,2);
+multiply(9,15);
 
 function min_max(a){
     let max = a[0];
