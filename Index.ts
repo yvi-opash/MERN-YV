@@ -1,5 +1,27 @@
-function divide({ dividend, divisor }: { dividend: number, divisor: number }) {
-  return dividend / divisor;
-}
+// let value: unknown = "hello";
 
-console.log(divide({dividend: 10, divisor: 2}));
+// if (typeof value === "string") {
+//   console.log(value.toUpperCase());
+// }
+
+
+interface Users {
+   readonly id : number;
+    name : string;
+    marrid : boolean;
+    description : any;
+    age?: number;
+    role: "admin" | "user";
+
+};
+
+const Users1 : Users = {
+    id: 11,
+    name: "yash",
+    marrid: true,
+    description: "epojifowfnlskdjroasfj",
+    role: "admin"
+    
+}; 
+
+console.log(Users1);
