@@ -23,68 +23,93 @@
 /// ------------ utility functions - -
 
 function sum(a: number, b: number): number {
-  return a + b;
+  console.log(a + b);
+  return 0;
 }
 
 function subtract(a: number, b: number): number {
-  return a - b;
+  console.log(a - b);
+  return 0;
 }
 
 function multiply(a: number, b: number): number {
-  return a * b;
+  console.log(a * b);
+  return 0;
 }
 
 function divide(a: number, b: number): number {
-  return a / b;
+  console.log(a / b);
+  return 0;
 }
 
 function square(a: number): number {
-  return a * a;
+  console.log(a * a);
+  return 0;
 }
 
-function isEven(a: number): boolean {
-  return a % 2 === 0;
+function even_odd(a: number): number {
+  if (a % 2 === 0) {
+    console.log(a, "is even number");
+  } else {
+    console.log(a, "is odd number");
+  }
+  return 0;
 }
 
 function upper(a: string): string {
-  return a.toUpperCase();
+  console.log(a.toUpperCase());
+  return "0";
 }
 
 function lower(a: string): string {
-  return a.toLowerCase();
+  console.log(a.toLowerCase());
+  return "0";
 }
 
-function firstLetterUpper(a: string): string {
-  return a.charAt(0).toUpperCase() + a.slice(1);
+function firstlatterupper(a: string): string {
+  console.log(a.charAt(0).toUpperCase() + a.slice(1));
+  return "0";
 }
 
 function max(a: number[]): number {
-  return Math.max(...a);
+  console.log(Math.max(...a));
+  return 0;
 }
-
 function min(a: number[]): number {
-  return Math.min(...a);
+  console.log(Math.min(...a));
+  return 0;
 }
 
-function arraySum(n: number[]): number {
+// function arraysum(n: number[]): number{
+//     let sum =0 ;
+//     for (let i=0; i<n.length; i++){
+//        sum += n[i];
+//     }
+//        console.log(sum);
+
+//     return 0;
+//}
+
+function arraysum(n: number[]): number {
   let sum = 0;
   for (let value of n) {
     sum += value;
   }
-  return sum;
+  console.log(sum);
+  return 0;
 }
 
 
+sum(10, 5);
+subtract(10, 5);
+multiply(10, 5);
+divide(10, 5);
+square(6);
+even_odd(7);
+upper("kdfjsdlas");
+lower("HELLO");
+firstlatterupper("typescript");
+max([10, 25, 3, 99, 45]);
+min([10, 25, 3, 99, 45]);
+arraysum([10, 20, 30, 40]);
 
-console.log(sum(5, 3));               
-console.log(subtract(10, 4));         
-console.log(multiply(2, 6));          
-console.log(divide(10, 2));          
-console.log(square(5));              
-console.log(isEven(7));               
-console.log(upper("yash"));           
-console.log(lower("YASH"));           
-console.log(firstLetterUpper("yash"));
-console.log(max([1, 5, 3]));          
-console.log(min([1, 5, 3]));          
-console.log(arraySum([5, 8, 6, 3]));  
