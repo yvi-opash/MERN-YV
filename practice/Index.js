@@ -1,4 +1,4 @@
-"use strict";
+
 Object.defineProperty(exports, "__esModule", { value: true });
 ;
 const Users1 = {
@@ -109,5 +109,26 @@ var week;
     week[week["friday"] = 6] = "friday";
     week[week["saturday"] = 7] = "saturday";
 })(week || (week = {}));
-console.log(week.friday);
+// console.log(week.friday);
+//Event
+const readline_1 = __importDefault(require("readline"));
+const rl = readline_1.default.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+const savedUser = {
+    username: "admin",
+    password: "123"
+};
+rl.question("Username: ", (u) => {
+    rl.question("Password: ", (p) => {
+        if (u === savedUser.username && p === savedUser.password) {
+            console.log("Login successful");
+        }
+        else {
+            console.log("Invalid credentials");
+        }
+        rl.close();
+    });
+});
 //# sourceMappingURL=Index.js.map

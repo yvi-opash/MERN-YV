@@ -165,4 +165,8 @@ enum week{
     saturday,
 }
 
-console.log(week.friday);
+// console.log(week.friday);
+
+
+
+
