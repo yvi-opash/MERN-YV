@@ -1,13 +1,23 @@
-function login(): void {
+function submit(): void {
     const username = document.getElementById("username") as HTMLInputElement;
-    const password = document.getElementById("password") as HTMLInputElement;
-    const message = document.getElementById("message") as HTMLParagraphElement;
+    const password =document.getElementById("password") as HTMLInputElement;
+    const message = document.getElementById("message") as HTMLParagraphElement
+    const a =document.getElementById("a") as HTMLAnchorElement;
 
-    if (username.value === "admin" && password.value === "1234") {
+    const storedname = localStorage.getItem("name");
+    const storedpassword = localStorage.getItem("password");
+    console.log(storedname, storedpassword);
+    
+
+    if(username.value === storedname && password.value === storedpassword) {
+        message.innerText = "Login Successfully";
         message.style.color = "green";
-        message.innerText = "Login Successful ✅";
-    } else {
+        a.click();
+    }
+    else {
+        message.innerText = "invalid username or password";
         message.style.color = "red";
-        message.innerText = "Invalid Username or Password ❌";
+        username.style.borderColor = "red";
+        password.style.borderColor = "red";
     }
 }

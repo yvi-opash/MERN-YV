@@ -1,16 +1,21 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-function login() {
+function submit() {
     const username = document.getElementById("username");
     const password = document.getElementById("password");
     const message = document.getElementById("message");
-    if (username.value === "admin" && password.value === "1234") {
+    const a = document.getElementById("a");
+    const storedname = localStorage.getItem("name");
+    const storedpassword = localStorage.getItem("password");
+    console.log(storedname, storedpassword);
+    if (username.value === storedname && password.value === storedpassword) {
+        message.innerText = "Login Successfully";
         message.style.color = "green";
-        message.innerText = "Login Successful ✅";
+        a.click();
     }
     else {
+        message.innerText = "invalid username or password";
         message.style.color = "red";
-        message.innerText = "Invalid Username or Password ❌";
+        username.style.borderColor = "red";
+        password.style.borderColor = "red";
     }
 }
-//# sourceMappingURL=script.js.map
