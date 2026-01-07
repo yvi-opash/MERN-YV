@@ -9,7 +9,8 @@
     // See also https://aka.ms/tsconfig/module
     "module": "nodenext",
     "target": "esnext",
-    "types": "ES2020",
+     //"types": "ES2020",
+    "lib": ["DOM","ES2020"],
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],

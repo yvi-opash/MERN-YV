@@ -1,24 +1,63 @@
 ///----------- interface
-// interface Users {
-//    readonly id : number;
-//     name : string;
-//     marrid : boolean;
-//     description : any;
-//     age?: number;
-//     role: "admin" | "user";
+interface Users {
+   readonly id : number;
+    name : string;
+    marrid : boolean;
+    description : any;
+    age?: number;
+    role: "admin" | "user";
 
-// };
+};
 
-// const Users1 : Users = {
-//     id: 11,
-//     name: "yash",
-//     marrid: true,
-//     description: "epojifowfnlskdjroasfj",
-//     role: "admin"
+const Users1 : Users = {
+    id: 11,
+    name: "yash",
+    marrid: true,
+    description: "epojifowfnlskdjroasfj",
+    role: "admin"
 
-// };
+};
 
 // console.log(Users1);
+
+
+interface product {
+  readonly id: number;
+  name: string;
+  weight: number;
+  price: number;
+  color: string;
+  size?: any;
+  category: "jewellery" | "clothing" | "electronics";
+  expirydate?: boolean;
+};
+
+const product1: product = {
+  id: 1,
+  name: "necklace",
+  weight: 20,
+  price: 200,
+  color: "golden",
+  category: "jewellery",
+  expirydate: false,
+  size: "0.1m"
+}
+
+
+// console.log(product1);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /// ------------ utility functions - -
 
@@ -100,16 +139,30 @@ function arraysum(n: number[]): number {
 }
 
 
-sum(10, 5);
-subtract(10, 5);
-multiply(10, 5);
-divide(10, 5);
-square(6);
-even_odd(7);
-upper("kdfjsdlas");
-lower("HELLO");
-firstlatterupper("typescript");
-max([10, 25, 3, 99, 45]);
-min([10, 25, 3, 99, 45]);
-arraysum([10, 20, 30, 40]);
+// sum(10, 5);
+// subtract(10, 5);
+// multiply(10, 5);
+// divide(10, 5);
+// square(6);
+// even_odd(7);
+// upper("kdfjsdlas");
+// lower("HELLO");
+// firstlatterupper("typescript");
+// max([10, 25, 3, 99, 45]);
+// min([10, 25, 3, 99, 45]);
+// arraysum([10, 20, 30, 40]);
 
+
+// enum
+
+enum week{
+    sunday =1,
+    monday,
+    tuesday,
+    wednesday,
+    thursday,
+    friday,
+    saturday,
+}
+
+console.log(week.friday);
