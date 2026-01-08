@@ -169,4 +169,59 @@ enum week{
 
 
 
+//  
+//   const response = await fetch("https://jsonplaceholder.typicode.com/users", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify({
+//       name: "Yash",
+//       email: "yash@test.com",
+//       address: {
+//     city: 'Howemouth',
+//   },
+//   phone: '210.067.6132',
+//   website: 'elvis.io',
+//   company: {
+//     name: 'Johns Group',
+//     catchPhrase: 'Configurable multimedia task-force',
+//     bs: 'generate enterprise e-tailers'
+//   }
+//     })
+//   });
 
+//   const data = await response.json();
+//   console.log(data);
+// }
+
+// createUser();
+
+
+
+
+// fetch("https://jsonplaceholder.typicode.com/users/11")
+//   .then((response) => {
+//     return response.json();
+//   })
+//   .then((data) => {
+//     console.log(data);
+//   });
+
+
+interface user{
+  userid: number;
+  id: number;
+  title: string;
+  completed: boolean;
+}
+
+async function datas() {
+  const info = await fetch("https://jsonplaceholder.typicode.com/todos/5");
+  const data: user[] = await info.json();
+  console.log(data);
+   
+
+} 
+
+datas();
