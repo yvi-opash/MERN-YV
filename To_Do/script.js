@@ -1,89 +1,61 @@
 "use strict";
-// const input = document.getElementById("todoInput") as HTMLInputElement;
-// const addBtn = document.getElementById("addBtn") as HTMLButtonElement;
-// const list = document.getElementById("todoList") as HTMLUListElement;
-// addBtn.addEventListener("click", () => {
-//   if (input.value !== "") {
-//     // create li
-//     const li = document.createElement("li");
-//     // task text
-//     const task = document.createElement("span");
-//     task.innerText = input.value;
-//     // status button
-//     const statusBtn = document.createElement("button");
-//     statusBtn.innerText = "👎";
-//     statusBtn.style.marginLeft = "10px";
-//     statusBtn.style.background = "red";
-//     statusBtn.style.color = "white";
-//     statusBtn.addEventListener("click", () => {
-//       statusBtn.innerText = "👍";
-//       statusBtn.style.background = "green";
-//       task.style.textDecoration = "line-through";
-//     });
-//     // delete button
-//     const deleteBtn = document.createElement("button");
-//     deleteBtn.innerText = "Delete";
-//     deleteBtn.style.marginLeft = "10px";
-//     deleteBtn.addEventListener("click", () => {
-//       alert("Your task has been deleted");
-//       li.remove();
-//     });
-//     // append elements
-//     li.append(task, statusBtn, deleteBtn);
-//     list.appendChild(li);
-//     // clear input
-//     input.value = "";
-//   } else {
-//     input.placeholder = "Please Enter New Task";
-//     input.style.border = "2px solid red";
-//   }
-// });
 const input = document.getElementById("todoInput");
 const addBtn = document.getElementById("addBtn");
 const list = document.getElementById("todoList");
 let todos = JSON.parse(localStorage.getItem("todos") || "[]");
-function showTodos() {
+function show() {
     list.innerHTML = "";
     for (let i = 0; i < todos.length; i++) {
-        console.log(todos.length);
         const li = document.createElement("li");
         const task = document.createElement("span");
-        task.innerText = todos[i].text;
-        if (todos[i].completed) {
-            task.style.textDecoration = "line-through";
-        }
-        const statusBtn = document.createElement("button");
-        statusBtn.innerText = todos[i].completed ? "⏳" : "✅";
-        statusBtn.style.marginLeft = "10px";
-        statusBtn.style.background = todos[i].completed ? "green" : "blue";
-        statusBtn.style.color = "white";
-        statusBtn.onclick = () => {
-            todos[i].completed = !todos[i].completed;
-            saveTodos();
+        task.innerHTML = todos[i].text;
+        const statusbu = document.createElement("button");
+        statusbu.innerText = todos[i].status ? "✅" : "⏳";
+        statusbu.style.backgroundColor = todos[i].status ? "green" : "blue";
+        statusbu.style.marginLeft = "10px";
+        // if(todos[i].status == false){
+        //     statusbu.innerText = "⏳";
+        //     statusbu.style.backgroundColor = "blue";
+        //  }
+        //  else{
+        //     statusbu.innerText = "✅";
+        //     statusbu.style.backgroundColor ="green";
+        //     //statusbu.style.textDecoration = "line-through"
+        //  }
+        statusbu.onclick = () => {
+            todos[i].status = !todos[i].status;
+            // if(todos[i].status === true){
+            //     todos[i].status = false;
+            // }
+            // else{
+            //     todos[i].status = true;
+            // }
+            save();
         };
-        const deleteBtn = document.createElement("button");
-        deleteBtn.innerText = "Delete";
-        deleteBtn.style.marginLeft = "10px";
-        deleteBtn.onclick = () => {
+        const deletbu = document.createElement("button");
+        deletbu.innerText = "Delete";
+        deletbu.style.marginLeft = "10px";
+        deletbu.onclick = () => {
             todos.splice(i, 1);
-            saveTodos();
+            save();
         };
-        li.append(task, statusBtn, deleteBtn);
+        li.append(task, statusbu, deletbu);
         list.appendChild(li);
     }
 }
-function saveTodos() {
+function save() {
     localStorage.setItem("todos", JSON.stringify(todos));
-    showTodos();
+    show();
 }
 addBtn.onclick = () => {
     if (input.value === "") {
         input.placeholder = "Please Enter New Task";
         input.style.border = "2px solid red";
-        return;
     }
-    todos.push({ text: input.value, completed: false });
-    input.value = "";
-    saveTodos();
+    else {
+        todos.push({ text: input.value, status: false });
+        input.value = "";
+        save();
+    }
 };
-showTodos();
+show();

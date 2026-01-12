@@ -19,7 +19,8 @@ const product1 = {
     expirydate: false,
     size: "0.1m"
 };
-// console.log(product1);
+console.log(product1);
+console.log(Object.keys(product1).length);
 /// ------------ utility functions - -
 function sum(a, b) {
     console.log(a + b);
@@ -112,7 +113,7 @@ var week;
 async function datas() {
     const info = await fetch("https://jsonplaceholder.typicode.com/todos/5");
     const data = await info.json();
-    console.log(data);
+    //console.log(data);
 }
-datas();
+// datas();
 //# sourceMappingURL=Index.js.map

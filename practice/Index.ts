@@ -44,7 +44,9 @@ const product1: product = {
 }
 
 
-// console.log(product1);
+console.log(product1);
+console.log(Object.keys(product1).length);
+
 
 
 
@@ -169,6 +171,11 @@ enum week{
 
 
 
+// type Aliases
+
+type 
+
+// Fetch API - -
 //  
 //   const response = await fetch("https://jsonplaceholder.typicode.com/users", {
 //     method: "POST",
@@ -219,9 +226,11 @@ interface user{
 async function datas() {
   const info = await fetch("https://jsonplaceholder.typicode.com/todos/5");
   const data: user[] = await info.json();
-  console.log(data);
+  //console.log(data);
    
 
 } 
 
-datas();
+// datas();
+
+
