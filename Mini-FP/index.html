@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Product Management</title>
+  </head>
+  <body>
+
+    <header>Frontend Mini Project -- Product Management</header>
+    <div>
+      <div>
+        <input type="text" id="name" placeholder="enter product Name" />
+        <input type="number" id="price" placeholder="enter product Price" />
+        <input type="number"  id="quantity" placeholder="quantity">
+        <button id="add">Add Product</button>
+      </div>
+
+      <table style="border: 1px;">
+        <thead>
+          <tr >
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>quantity</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="product"></tbody>
+      </table>
+      <script src="script.js"></script>
+    </div>
+  </body>
+</html>

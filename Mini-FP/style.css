@@ -1,0 +1,149 @@
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fff1e6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  color: #333;
+}
+
+/* Header */
+header {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ff7a00;
+  margin-bottom: 30px;
+}
+
+/* Main Container */
+body > div {
+  background: #ffffff;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 15px 40px rgba(255, 122, 0, 0.2);
+}
+
+/* Input Section */
+body > div > div {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="number"] {
+  flex: 1;
+  min-width: 180px;
+  padding: 14px 20px;
+  border: 2px solid #ffd1a3;
+  border-radius: 50px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #ff7a00;
+}
+
+/* Add Button */
+#add {
+  padding: 14px 30px;
+  background: #ff7a00;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+  border: none !important;
+}
+
+/* Table Head */
+th {
+  padding: 10px 20px;
+  color: #ff9f43;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+th:nth-child(4) {
+  text-align: center;
+}
+
+/* Table Row */
+tbody tr {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+/* Table Cell */
+td {
+  padding: 18px 20px;
+  font-weight: 500;
+}
+
+/* ================= ACTION COLUMN (FINAL FIX) ================= */
+
+tbody tr td:nth-child(4) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+/* Support BOTH button & input */
+tbody tr td:nth-child(4) button,
+tbody tr td:nth-child(4) input {
+  min-width: 70px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* First = Edit */
+tbody tr td:nth-child(4) button:first-of-type,
+tbody tr td:nth-child(4) input:first-of-type {
+  background-color: #ff9f1a;
+  color: white;
+}
+
+/* Second = Delete */
+tbody tr td:nth-child(4) button:last-of-type,
+tbody tr td:nth-child(4) input:last-of-type {
+  background-color: #e74c3c;
+  color: white;
+}
+
+/* Hover */
+tbody tr td:nth-child(4) button:hover,
+tbody tr td:nth-child(4) input:hover {
+  opacity: 0.85;
+}

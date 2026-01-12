@@ -20,7 +20,7 @@ function show (){
         task.innerText = todos[i].text;
 
         
-        
+            
         
         const statusbu = document.createElement("button");
 
