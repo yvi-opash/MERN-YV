@@ -1,14 +1,13 @@
-/* Import Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
-/* Reset */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body */
+/* BODY */
 body {
   font-family: 'Poppins', sans-serif;
   background: #fff1e6;
@@ -20,15 +19,16 @@ body {
   color: #333;
 }
 
-/* Header */
+/* HEADER */
 header {
   font-size: 2rem;
   font-weight: 600;
   color: #ff7a00;
   margin-bottom: 30px;
+  text-align: center;
 }
 
-/* Main Container */
+/* MAIN CONTAINER */
 body > div {
   background: #ffffff;
   width: 100%;
@@ -38,7 +38,7 @@ body > div {
   box-shadow: 0 15px 40px rgba(255, 122, 0, 0.2);
 }
 
-/* Input Section */
+/* INPUT SECTION */
 body > div > div {
   display: flex;
   gap: 15px;
@@ -46,23 +46,23 @@ body > div > div {
   flex-wrap: wrap;
 }
 
-/* Inputs */
-input[type="text"],
-input[type="number"] {
+/* INPUTS */
+input {
   flex: 1;
   min-width: 180px;
   padding: 14px 20px;
   border: 2px solid #ffd1a3;
   border-radius: 50px;
   outline: none;
+  font-size: 14px;
 }
 
 input:focus {
   border-color: #ff7a00;
 }
 
-/* Add Button */
-#add {
+/* ADD BUTTON */
+button#add {
   padding: 14px 30px;
   background: #ff7a00;
   color: white;
@@ -72,15 +72,14 @@ input:focus {
   cursor: pointer;
 }
 
-/* Table */
+/* TABLE */
 table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0 12px;
-  border: none !important;
 }
 
-/* Table Head */
+/* TABLE HEAD */
 th {
   padding: 10px 20px;
   color: #ff9f43;
@@ -89,26 +88,21 @@ th {
   text-align: left;
 }
 
-th:nth-child(4) {
-  text-align: center;
-}
-
-/* Table Row */
+/* TABLE ROW */
 tbody tr {
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
-/* Table Cell */
+/* TABLE CELL */
 td {
   padding: 18px 20px;
   font-weight: 500;
 }
 
-/* ================= ACTION COLUMN (FINAL FIX) ================= */
-
-tbody tr td:nth-child(4) {
+/* ACTION COLUMN */
+td:nth-child(4) {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,34 +110,56 @@ tbody tr td:nth-child(4) {
   white-space: nowrap;
 }
 
-/* Support BOTH button & input */
-tbody tr td:nth-child(4) button,
-tbody tr td:nth-child(4) input {
-  min-width: 70px;
-  padding: 6px 14px;
-  border-radius: 6px;
+/* ACTION BUTTONS */
+tbody button {
+  padding: 8px 18px;
   border: none;
+  border-radius: 50px;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
 }
 
-/* First = Edit */
-tbody tr td:nth-child(4) button:first-of-type,
-tbody tr td:nth-child(4) input:first-of-type {
-  background-color: #ff9f1a;
+/* DELETE */
+tbody button:first-of-type {
+  background: #e74c3c;
   color: white;
 }
 
-/* Second = Delete */
-tbody tr td:nth-child(4) button:last-of-type,
-tbody tr td:nth-child(4) input:last-of-type {
-  background-color: #e74c3c;
+/* EDIT */
+tbody button:last-of-type {
+  background: #1e90ff;
   color: white;
 }
 
-/* Hover */
-tbody tr td:nth-child(4) button:hover,
-tbody tr td:nth-child(4) input:hover {
-  opacity: 0.85;
+/* ---------------- MOBILE RESPONSIVE ---------------- */
+
+@media (max-width: 600px) {
+
+  /* FORM STACK */
+  body > div > div {
+    flex-direction: column;
+  }
+
+  input,
+  button#add {
+    width: 100%;
+  }
+
+  /* TABLE SCROLL */
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  /* SMALLER BUTTONS */
+  td:nth-child(4) {
+    gap: 6px;
+  }
+
+  tbody button {
+    padding: 6px 14px;
+    font-size: 12px;
+  }
 }

@@ -49,12 +49,17 @@ function show() {
         pname.value = products[i].name;
         pprice.value = products[i].price.toString();
         pquantity.value = products[i].quantity.toString();
+        delet.style.visibility = "hidden";
+        edit.style.visibility = "hidden";
         editnumber = i;
 
         addbtn.innerText = "Edit";
     }
 
-    tr.append(nameTD, priceTD, quantityTD, delet, edit);
+    const actionTD = document.createElement("td");
+  actionTD.append(edit, delet);
+
+    tr.append(nameTD, priceTD, quantityTD, actionTD);
     plist.appendChild(tr);
   }
 }
