@@ -4,19 +4,18 @@ const addbtn = document.getElementById("add") as HTMLButtonElement;
 const pquantity = document.getElementById("quantity") as HTMLInputElement;
 const plist = document.getElementById("product") as HTMLTableSectionElement;
 
-type product = {
-   
+interface Product {
   name: string;
   price: number;
   quantity: number;
-};
+}
 
-let editnumber: number | null = null; 
+let editnumber: number | null = null;
 
-let products: product[] = JSON.parse(localStorage.getItem("products") || "[]");
+let products: Product[] = JSON.parse(localStorage.getItem("products") || "[]");
 
 function show() {
-    plist.innerHTML = ""; 
+  plist.innerHTML = "";
 
   for (let i = 0; i < products.length; i++) {
     const tr = document.createElement("tr");
@@ -34,30 +33,37 @@ function show() {
     // quantityTD.innerText = String(products[i].quantity ?? 0);
 
     const delet = document.createElement("button");
-    delet.innerText="delete";
+    delet.innerText = "delete";
+
+    // delet.onclick = () => {
+    //   products.splice(i, 1);
+    //   save();
+    // };
 
     delet.onclick = () => {
+      if (editnumber !== null) {
+        alert("Finish editing before deleting");
+        return;
+      }
+
       products.splice(i, 1);
       save();
     };
 
-
-    const edit = document.createElement("button")
-    edit.innerText="Edit"; 
+    const edit = document.createElement("button");
+    edit.innerText = "Edit";
 
     edit.onclick = () => {
-        pname.value = products[i].name;
-        pprice.value = products[i].price.toString();
-        pquantity.value = products[i].quantity.toString();
-        delet.style.visibility = "hidden";
-        edit.style.visibility = "hidden";
-        editnumber = i;
+      pname.value = products[i].name;
+      pprice.value = products[i].price.toString();
+      pquantity.value = products[i].quantity.toString();
+      editnumber = i;
 
-        addbtn.innerText = "Edit";
-    }
+      addbtn.innerText = "Edit";
+    };
 
     const actionTD = document.createElement("td");
-  actionTD.append(edit, delet);
+    actionTD.append(edit, delet);
 
     tr.append(nameTD, priceTD, quantityTD, actionTD);
     plist.appendChild(tr);
@@ -70,32 +76,35 @@ function save() {
 }
 
 addbtn.onclick = () => {
-    if(pname.value.trim() === "" || pprice.value.trim() === "" || pquantity.value.trim() === ""){
-        alert("Please fill all fields");
-        return;
-    }
-    if(editnumber == null){
-        products.push({
-            
-            name: pname.value,
-            price: Number(pprice.value),
-            quantity: Number(pquantity.value),
-        });
-    }
-    else{
-        products[editnumber] ={
-            name: pname.value,
-            price: Number(pprice.value),
-            quantity: Number(pquantity.value)
-        };
-        editnumber = null;
-        addbtn.innerText = "Add";
-    }
-    pname.value = "";
-    pprice.value = "";
-    pquantity.value ="";
+  if (
+    pname.value.trim() === "" ||
+    pprice.value.trim() === "" ||
+    Number(pprice.value) <= 0 ||
+    pquantity.value.trim() === "" ||
+    Number(pquantity.value) <= 0
+  ) {
+    alert("Please fill all fields");
+    return;
+  }
+  if (editnumber == null) {
+    products.push({
+      name: pname.value,
+      price: Number(pprice.value),
+      quantity: Number(pquantity.value),
+    });
+  } else {
+    products[editnumber] = {
+      name: pname.value,
+      price: Number(pprice.value),
+      quantity: Number(pquantity.value),
+    };
+    editnumber = null;
+    addbtn.innerText = "Add";
+  }
+  pname.value = "";
+  pprice.value = "";
+  pquantity.value = "";
 
-  
   save();
 };
 
