@@ -5,6 +5,7 @@ const Signup = () => {
   return (
     <>
       <Link to="/">⬅</Link>
+      <div>Signup Page</div>
     </>
   )
 }

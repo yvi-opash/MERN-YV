@@ -1,21 +1,48 @@
-import React from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { useState } from "react";
 
-
-interface user {
-        id: string;
+interface LoginForm {
+  email: string;
+  password: string;
 }
 
-function Login() {
-    
-    const {id} = useParams<{id?: string}>();
-  
-    return (
-    <>
-      <Link to="/">⬅</Link>
-      <div>Login Page {id}</div>
-    </>
-  )
-}
+const Login = () => {
+  const [formData, setFormData] = useState<LoginForm>({
+    email: "",
+    password: ""
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log(formData);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        value={formData.email}
+        onChange={handleChange}
+      />
+
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        value={formData.password}
+        onChange={handleChange}
+      />
+
+      <button type="submit">Login</button>
+    </form>
+  );
+};
 
 export default Login;
+  
