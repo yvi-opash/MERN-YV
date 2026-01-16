@@ -9,8 +9,8 @@ function counter () {
   return (
     <>
       <h2>{count}</h2>
-      <button onClick={() => {setcount(count + 1)}}>+</button>
-      <button onClick={() => {setcount(count -1)}}>-</button> 
+      <button onClick={() => {setcount(count + 1)}}>{count} + 1</button>
+      <button onClick={() => {setcount(count -1)}}>{count} - 1</button> 
       <button onClick={() => {setcount(0)}}>0</button>
 
       <input type="text" onChange={(e) => {settext(e.target.value)}} />
