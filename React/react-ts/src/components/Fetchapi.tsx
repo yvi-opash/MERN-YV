@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 
+
 // interface User {
 //   id: number;
 //   name: string;
@@ -92,7 +93,7 @@ const UserList = () => {
   }, []);
     
 
-if(loadings) return(<p>loading..................................</p>)
+if(loadings) return(<p>loading................</p>)
 if(error) return(<p>Error:{error}</p>)
 
   return (
@@ -102,7 +103,7 @@ if(error) return(<p>Error:{error}</p>)
        <ul>
          {users.map((user) => (
           <li key={user.id}>
-            <strong>{user.name}</strong> – {user.email}
+            <strong>{user.name}</strong>  {user.email}
           </li>
         ))}
       </ul>
