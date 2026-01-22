@@ -1,6 +1,7 @@
 import type React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { HomeOutlined } from '@ant-design/icons';
 
 type user = {
   name: string;
@@ -37,7 +38,7 @@ const Login: React.FC = () => {
 
   return (
     <div>
-      <Link to="/">Home</Link>
+      <Link to="/"><HomeOutlined /></Link>
       <h1>Login Page</h1>
       {message && <p>{message}</p>}
       <form onSubmit={handlesubmit}>

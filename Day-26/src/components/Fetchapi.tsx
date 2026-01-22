@@ -1,23 +1,37 @@
 // import { useEffect, useState } from "react";
-
+import { Spin } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
 import { useEffect, useState } from "react";
+import { useAuth } from "../context/AuthContext";
 
 interface user{
     id:number;
     name:string;
-    email:string;
+    language:string;
+    bio :string;
 }
 
 const UserList = () => {
+  const { user } = useAuth();
   const [users, setUsers] = useState<user[]>([]);
   const [loadings, setLoadings] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!user) {
+      setLoadings(false);
+      return;
+    }
+
+    setLoadings(true); // Ensure loading is true when user exists
+    
     const fetchUsers = async () => {
       try {
+        // Add delay at the start to show loading for longer
+        await new Promise(resolve => setTimeout(resolve, 3000));
+        
         const res = await fetch(
-          "https://jsonplaceholder.typicode.com/comments"
+          "https://microsoftedge.github.io/Demos/json-dummy-data/256KB-min.json"
         );
 
         if (!res.ok) {
@@ -34,10 +48,11 @@ const UserList = () => {
     };
 
     fetchUsers();
-  }, []);
+  }, [user]);
     
 
-if(loadings) return(<p>loading................</p>)
+if (!user) return(<p>Please log in to view the user list.</p>)
+if(loadings) return(<div> <LoadingOutlined    /></div>)
 if(error) return(<p>Error:{error}</p>)
 
   return (
@@ -47,7 +62,7 @@ if(error) return(<p>Error:{error}</p>)
        <ul>
          {users.map((user) => (
           <li key={user.id}>
-            <strong>{user.name}</strong>  {user.email}
+            <strong>{user.name}</strong> ---- {user.language} ------- {user.bio}  
           </li>
         ))}
       </ul>
