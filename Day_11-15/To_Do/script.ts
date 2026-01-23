@@ -35,7 +35,7 @@ function show (){
         //     statusbu.innerText = "✅";
         //     statusbu.style.backgroundColor ="green";
         //     //statusbu.style.textDecoration = "line-through"
-        //  }
+        //}
 
         statusbu.onclick = () => {
             todos[i].status = !todos[i].status;

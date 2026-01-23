@@ -24,7 +24,7 @@ const Welcome: React.FC = () => {
 
     return(
         <div>
-            <h1>User Pfofile</h1>
+            <h1>User rofile</h1>
             <ul>
                 <li>Name: {user?.name}</li>
                 <li>Email: {user?.email}</li>

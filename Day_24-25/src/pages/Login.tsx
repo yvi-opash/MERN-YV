@@ -38,7 +38,7 @@ const Login: React.FC = () => {
 
   return (
     <div>
-      <Link to="/"><HomeOutlined /></Link>
+      <Link to="/"><HomeOutlined /></Link><Link to="/signup">Go to Signup</Link>
       <h1>Login Page</h1>
       {message && <p>{message}</p>}
       <form onSubmit={handlesubmit}>

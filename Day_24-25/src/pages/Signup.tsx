@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 
-
+import { HomeOutlined } from '@ant-design/icons';
 
 
 type User = {
@@ -54,6 +54,11 @@ const handleSubmit = (e: React.FormEvent) => {
     return;
   }
 
+  if(formdata.password.length < 3){
+    setMessage("Password must be at least 3 characters.");
+    return;
+  }
+
   const existemail = users.some(
     (user) => user.email === formdata.email
   );
@@ -82,7 +87,7 @@ const handleSubmit = (e: React.FormEvent) => {
 
   return (
     <div>
-      <Link to="/">Home</Link>
+      <Link to="/"><HomeOutlined /></Link><Link to="/login">Go to Login</Link>
       <h1>Singup page</h1>
 
       <form onSubmit={handleSubmit}>

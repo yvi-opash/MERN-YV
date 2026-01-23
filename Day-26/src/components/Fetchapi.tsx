@@ -23,11 +23,11 @@ const UserList = () => {
       return;
     }
 
-    setLoadings(true); // Ensure loading is true when user exists
+    setLoadings(true); 
     
     const fetchUsers = async () => {
       try {
-        // Add delay at the start to show loading for longer
+        
         await new Promise(resolve => setTimeout(resolve, 3000));
         
         const res = await fetch(
