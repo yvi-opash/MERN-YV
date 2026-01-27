@@ -1,0 +1,156 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* PAGE */
+body {
+  background-color: #221f1f;
+  font-family: Arial, sans-serif;
+}
+
+/* CARDS CONTAINER */
+.cards-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* JOB CARD */
+.job-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* TOP */
+.card-top {
+  background-color: #f3f6ff;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+
+  display: flex;              
+  align-items: center;       
+  justify-content: center;    
+
+  margin: 0 auto 12px;   
+  border: 2px solid #e0e6ff;     
+}
+
+/* LOGO */
+.company-logo {
+  max-width: 70%;
+  max-height: 70%;
+  object-fit: contain;
+}
+
+
+/* MIDDLE */
+.card-middle {
+  margin-top: 16px;
+  flex-grow: 1;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tag {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.tag.product {
+  background-color: #e7edff;
+  color: #3b5cff;
+}
+
+.tag.new {
+  background-color: #ffe7e7;
+  color: #ff4d4d;
+}
+
+.job-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.salary {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.job-info span {
+  display: block;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+/* BOTTOM */
+.card-bottom {
+  margin-top: 16px;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.skill {
+  background-color: #eaf6e8;
+  color: #2f7d2f;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 12px;
+}
+
+/* BUTTON */
+.view-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.view-btn:hover {
+  background-color: #333;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .cards-container {
+    padding: 16px;
+  }
+}
