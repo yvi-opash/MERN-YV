@@ -1,7 +1,7 @@
 import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
-  // TS knows exactly what 'user' and 'logout' are
+
   const { user, logout, login } = useAuth(); 
 
   return (
