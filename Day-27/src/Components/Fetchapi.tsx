@@ -15,7 +15,7 @@ const UserList = () => {
     const fetchUsers = async () => {
       try {
         const res = await fetch(
-          "https://jsonplaceholder.typicode.com/comments/1"
+          "https://jsonplaceholder.typicode.com/comments"
         );
 
         
