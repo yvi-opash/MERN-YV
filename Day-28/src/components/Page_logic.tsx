@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import {
   TableContainer,
   Table,
@@ -8,8 +8,7 @@ import {
   TableBody,
   TableFooter,
   Button,
-  MenuItem,
-  Select,
+
 } from "@mui/material";
 import { ChevronLeftRounded, ChevronRightRounded } from "@mui/icons-material";
 
@@ -92,9 +91,9 @@ const Page_logic = () => {
                 );
               })}
             </TableBody>
-            {/* <TableFooter>
+            <TableFooter>
                             <TableRow>
-                                <TableCell>
+                                <TableCell colSpan={5}>
                                     <span>Rows per page:</span>
                                     <input
                                         type="number"
@@ -107,18 +106,18 @@ const Page_logic = () => {
                                         max={data1.length}
                                         
                                     />
-                                    <TableCell></TableCell>
+                                    
                                     <span>
                                         {starting + 1}-{ending} of {data1.length}
                                     </span>
-                                    <TableCell></TableCell>
+                                    
                                     <Button
                                         onClick={() => setcurrentpage(currentpage - 1)}
                                         disabled={currentpage === 0}
                                     >
                                         <ChevronLeftRounded />
                                     </Button>
-                                    <TableCell></TableCell>
+                                   
                                     <Button
                                         onClick={() => setcurrentpage(currentpage + 1)}
                                         disabled={ending >= data1.length}
@@ -126,11 +125,11 @@ const Page_logic = () => {
                                         <ChevronRightRounded />
                                     </Button>
                                 </TableCell>
-                                 <TableCell></TableCell>
+                                 
                             </TableRow>
-                        </TableFooter> */}
+                        </TableFooter>
 
-            <TableFooter>
+            {/* <TableFooter>
               <TableRow>
                 <TableCell colSpan={5}>
                   <span>Rows per page:</span>
@@ -170,11 +169,14 @@ const Page_logic = () => {
                   </Button>
                 </TableCell>
               </TableRow>
-            </TableFooter>
+            </TableFooter> */}
           </Table>
         </TableContainer>
       </div>
     </>
   );
 };
+
 export default Page_logic;
+
+

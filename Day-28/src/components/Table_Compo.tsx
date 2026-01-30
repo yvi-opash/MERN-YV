@@ -1,4 +1,4 @@
-import { TableContainer, Table, TableHead, TableRow, TableCell, TableBody, TablePagination } from "@mui/material"
+import { TableContainer, Table, TableHead, TableRow, TableCell, TableBody } from "@mui/material"
 
 interface data{
     name: string,

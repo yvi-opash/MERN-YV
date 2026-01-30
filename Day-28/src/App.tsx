@@ -7,6 +7,7 @@ function App() {
 
   return (
     <>
+     Tables & Pagination  
       <Table_Compo/>
       <hr />Page logic<hr />
       <Page_logic/>
