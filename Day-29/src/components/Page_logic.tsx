@@ -59,19 +59,37 @@ const Page_logic = () => {
   const [Search, setSearch] = useState("");
   const [user, setuser] = useState(data1)
 
+  const [ageFilter, setAgeFilter] = useState("");
+
   let starting = currentpage * rowperpage;
   let ending = starting + rowperpage;
 
+  function handleAgeFilter(value: string) {
+    setAgeFilter(value);
+    if (value === "") {
+      setuser(data1);
+      return;
+    }
+    
+    const filtered = data1.filter((item) => {
+      const age = item.age;
+      if (value === "20-25") return age >= 20 && age <= 25;
+      if (value === "26-30") return age >= 26 && age <= 30;
+      return true;
+    });
+    setuser(filtered);
+  }
+
   function handleSearch() {
-    if (Search === ""){
+    if (Search === "All Ages"){
       setuser(data1);
       return;
     }
   
-    const filter = data1.filter((item) =>
+    const searchuser = data1.filter((item) =>
       item.name.toLowerCase().includes(Search.toLowerCase())
     );
-    setuser(filter);
+    setuser(searchuser);
   }
 
   return (
@@ -86,6 +104,16 @@ const Page_logic = () => {
         <button onClick={handleSearch}>Search</button>
       </div>
       <div>
+      <div>
+        <select 
+          value={ageFilter}
+          onChange={e => handleAgeFilter(e.target.value)}
+        >
+          <option value="All Ages">All Ages</option>
+          <option value="20-25">20-25 years</option>
+          <option value="26-30">26-30 years</option>
+        </select>
+      </div>
         <TableContainer>
           <Table>
             <TableHead>
