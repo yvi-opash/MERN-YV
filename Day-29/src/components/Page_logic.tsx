@@ -1,4 +1,5 @@
-import  { useState } from "react";
+import { useState } from "react";
+import '../index.css'
 import {
   TableContainer,
   Table,
@@ -55,18 +56,42 @@ const Page_logic = () => {
   const [rowperpage, setrowperpage] = useState(5);
   const [currentpage, setcurrentpage] = useState(0);
 
+  const [Search, setSearch] = useState("");
+  const [user, setuser] = useState(data1)
+
   let starting = currentpage * rowperpage;
   let ending = starting + rowperpage;
 
+  function handleSearch() {
+    if (Search === ""){
+      setuser(data1);
+      return;
+    }
+  
+    const filter = data1.filter((item) =>
+      item.name.toLowerCase().includes(Search.toLowerCase())
+    );
+    setuser(filter);
+  }
+
   return (
     <>
+
+      <div>
+        <input 
+          value={Search}
+          onChange={e => setSearch(e.target.value)}
+          placeholder="Search by name"
+        />
+        <button onClick={handleSearch}>Search</button>
+      </div>
       <div>
         <TableContainer>
           <Table>
             <TableHead>
               <TableRow>
                 <TableCell>id</TableCell>
-                <TableCell>nmae</TableCell>
+                <TableCell>name</TableCell>
                 <TableCell>age</TableCell>
                 <TableCell>email</TableCell>
                 <TableCell>%</TableCell>
@@ -74,7 +99,7 @@ const Page_logic = () => {
             </TableHead>
 
             <TableBody>
-              {data1.slice(starting, ending).map((elem, id) => {
+              {user.slice(starting, ending).map((elem, id) => {
                 return (
                   <TableRow key={id}>
                     <TableCell>{id + starting + 1}</TableCell>
@@ -97,13 +122,13 @@ const Page_logic = () => {
                                             setrowperpage(Number(e.target.value));
                                             setcurrentpage(0);
                                         }}
-                                        
-                                        max={data1.length}
-                                        
+                                        min="1"
+                                        max={user.length}
+                                        style={{width: '60px'}}
                                     />
                                     
                                     <span>
-                                        {starting + 1}-{ending} of {data1.length}
+                                        {starting + 1}-{Math.min(ending, user.length)} of {user.length}
                                     </span>
                                     
                                     <Button
@@ -115,7 +140,7 @@ const Page_logic = () => {
                                    
                                     <Button
                                         onClick={() => setcurrentpage(currentpage + 1)}
-                                        disabled={ending >= data1.length}
+                                        disabled={ending >= user.length}
                                     >
                                         <ChevronRightRounded />
                                     </Button>
