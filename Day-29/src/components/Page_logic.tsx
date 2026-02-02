@@ -1,5 +1,5 @@
 import { useState } from "react";
-import '../index.css'
+import "../index.css";
 import {
   TableContainer,
   Table,
@@ -9,7 +9,6 @@ import {
   TableBody,
   TableFooter,
   Button,
-
 } from "@mui/material";
 import { ChevronLeftRounded, ChevronRightRounded } from "@mui/icons-material";
 
@@ -24,7 +23,12 @@ const data1: data[] = [
   { name: "Aarav", age: 21, email: "aarav.shah@gmail.com", percentage: 78 },
   { name: "Vivaan", age: 22, email: "vivaan.patel@gmail.com", percentage: 82 },
   { name: "Aditya", age: 23, email: "aditya.mehta@gmail.com", percentage: 69 },
-  {  name: "Krishna",  age: 24, email: "krishna.joshi@gmail.com", percentage: 91,},
+  {
+    name: "Krishna",
+    age: 24,
+    email: "krishna.joshi@gmail.com",
+    percentage: 91,
+  },
   { name: "Ishaan", age: 25, email: "ishaan.verma@gmail.com", percentage: 74 },
 
   { name: "Rohan", age: 26, email: "rohan.singh@gmail.com", percentage: 88 },
@@ -57,7 +61,7 @@ const Page_logic = () => {
   const [currentpage, setcurrentpage] = useState(0);
 
   const [Search, setSearch] = useState("");
-  const [user, setuser] = useState(data1)
+  const [user, setuser] = useState(data1);
 
   const [ageFilter, setAgeFilter] = useState("");
 
@@ -70,7 +74,7 @@ const Page_logic = () => {
       setuser(data1);
       return;
     }
-    
+
     const filtered = data1.filter((item) => {
       const age = item.age;
       if (value === "20-25") return age >= 20 && age <= 25;
@@ -81,40 +85,37 @@ const Page_logic = () => {
   }
 
   function handleSearch() {
-    if (Search === "All Ages"){
+    if (Search === "All Ages") {
       setuser(data1);
       return;
     }
-  
+
     const searchuser = data1.filter((item) =>
-      item.name.toLowerCase().includes(Search.toLowerCase())
+      item.name.toLowerCase().includes(Search.toLowerCase()),
     );
     setuser(searchuser);
   }
 
   return (
     <>
-
       <div>
-        <input 
+        <input
           value={Search}
-          onChange={e => setSearch(e.target.value)}
+          onChange={(e) => setSearch(e.target.value)}
           placeholder="Search by name"
         />
         <button onClick={handleSearch}>Search</button>
-      </div>
-      <div>
-      <div>
-        <select 
-          value={ageFilter}
-          onChange={e => handleAgeFilter(e.target.value)}
-        >
-          <option value="All Ages">All Ages</option>
-          <option value="20-25">20-25 years</option>
-          <option value="26-30">26-30 years</option>
-        </select>
-      </div>
+      
+          <select
+            value={ageFilter}
+            onChange={(e) => handleAgeFilter(e.target.value)}
+          >
+            <option value="All Ages">All Ages</option>
+            <option value="20-25">20-25 years</option>
+          </select>
+        
         <TableContainer>
+            <option value="26-30">26-30 years</option>
           <Table>
             <TableHead>
               <TableRow>
@@ -140,42 +141,42 @@ const Page_logic = () => {
               })}
             </TableBody>
             <TableFooter>
-                            <TableRow>
-                                <TableCell colSpan={5}>
-                                    <span>Rows per page:</span>
-                                    <input
-                                        type="number"
-                                        value={rowperpage}
-                                        onChange={(e) => {
-                                            setrowperpage(Number(e.target.value));
-                                            setcurrentpage(0);
-                                        }}
-                                        min="1"
-                                        max={user.length}
-                                        style={{width: '60px'}}
-                                    />
-                                    
-                                    <span>
-                                        {starting + 1}-{Math.min(ending, user.length)} of {user.length}
-                                    </span>
-                                    
-                                    <Button
-                                        onClick={() => setcurrentpage(currentpage - 1)}
-                                        disabled={currentpage === 0}
-                                    >
-                                        <ChevronLeftRounded />
-                                    </Button>
-                                   
-                                    <Button
-                                        onClick={() => setcurrentpage(currentpage + 1)}
-                                        disabled={ending >= user.length}
-                                    >
-                                        <ChevronRightRounded />
-                                    </Button>
-                                </TableCell>
-                                 
-                            </TableRow>
-                        </TableFooter>
+              <TableRow>
+                <TableCell colSpan={5}>
+                  <span>Rows per page:</span>
+                  <input
+                    type="number"
+                    value={rowperpage}
+                    onChange={(e) => {
+                      setrowperpage(Number(e.target.value));
+                      setcurrentpage(0);
+                    }}
+                    min="1"
+                    max={user.length}
+                    style={{ width: "60px" }}
+                  />
+
+                  <span>
+                    {starting + 1}-{Math.min(ending, user.length)} of{" "}
+                    {user.length}
+                  </span>
+
+                  <Button
+                    onClick={() => setcurrentpage(currentpage - 1)}
+                    disabled={currentpage === 0}
+                  >
+                    <ChevronLeftRounded />
+                  </Button>
+
+                  <Button
+                    onClick={() => setcurrentpage(currentpage + 1)}
+                    disabled={ending >= user.length}
+                  >
+                    <ChevronRightRounded />
+                  </Button>
+                </TableCell>
+              </TableRow>
+            </TableFooter>
 
             {/* <TableFooter>
               <TableRow>
@@ -226,5 +227,3 @@ const Page_logic = () => {
 };
 
 export default Page_logic;
-
-
