@@ -1,8 +1,17 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link , useNavigate} from 'react-router-dom'
 import './Header.css'
 
 const Header = () => {
+
+    const navigate = useNavigate()
+
+    function handleLogout () {
+        navigate('/login')
+    }
+
+
+
   return (
     <div className="header">
         <h1>Admin Panel</h1>
@@ -11,6 +20,7 @@ const Header = () => {
             <Link to="/users">Users</Link>
             <Link to="/products">Products</Link>
         </nav>
+        <button onClick={handleLogout} >Logout</button>
     </div>
   )
 }
