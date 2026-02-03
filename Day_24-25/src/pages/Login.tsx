@@ -10,12 +10,15 @@ type user = {
 };
 
 const Login: React.FC = () => {
+
   const navigate = useNavigate();
+  
   const [formdata, setFormdata] = useState<user>({
     name: "",
     email: "",
     password: "",
   });
+  
   const [message, setMessage] = useState<string>("");
 
   const handlesubmit = (e: React.FormEvent) => {
@@ -24,10 +27,10 @@ const Login: React.FC = () => {
     const storeduser = localStorage.getItem("users");
     const users: user[] = storeduser ? JSON.parse(storeduser) : [];
 
-    const existuser = users.find(
-      (user) =>
+    const existuser = users.find((user) =>
         user.email === formdata.email && user.password === formdata.password,
     );
+    
     if (existuser) {
       localStorage.setItem("Login User", JSON.stringify(existuser));
       navigate("/Welcome");
