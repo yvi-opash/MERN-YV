@@ -53,6 +53,10 @@ const Signup = () => {
       return;
     }
 
+    if(formData.password.length < 8){
+    setMessage("Password must be at least 3 characters.");
+    return;
+  }
     const newUser = [...User, formData];
     localStorage.setItem("users", JSON.stringify(newUser));
     setMessage("Registration successful!");
