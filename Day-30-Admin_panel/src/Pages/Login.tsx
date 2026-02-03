@@ -7,7 +7,8 @@ type user = {
     name : string,
     email : string,
     password : string,
-    isloggin : boolean
+    isloggin : boolean,
+    role : "user" | "admin"
 }
 
 
@@ -19,7 +20,8 @@ const Login : React.FC = () => {
         name: "",
         email: "",
         password: "",
-        isloggin : false         
+        isloggin : false,
+        role :   "user"   
     })
 
     const [message, setmessage] = useState<string>('')  
@@ -38,10 +40,18 @@ const Login : React.FC = () => {
             user.email === formData.email && user.password === formData.password
         )
 
+        
+
         if(existuser){
             existuser.isloggin = true;
             localStorage.setItem("users", JSON.stringify(user1));
-            navigate('/')
+            
+            if(existuser.role === "admin"){
+            navigate("/admin-home")
+            }
+            else{
+                navigate("/user-home")
+            }
         }
         else{
             setmessage("user not found, register first")

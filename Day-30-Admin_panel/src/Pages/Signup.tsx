@@ -5,6 +5,9 @@ import './Login.css';
 type user = {
   name: string;
   email: string;
+  age: number;
+  city: string;
+  country: string;
   password: string;
   isloggin: boolean;
   role: "user" | "admin";
@@ -18,7 +21,10 @@ const Signup = () => {
     email: "",
     password: "",
     isloggin: false,
-    role: "user"
+    role: "user",
+    age: 0,
+    city: "",
+    country: ""
   });
 
   const [message, setMessage] = useState<string>("");
@@ -73,6 +79,31 @@ const Signup = () => {
           placeholder="Enter Email"
           value={formData.email}
           onChange={(e) => setformData({ ...formData, email: e.target.value })}
+        />
+        <input
+          type="number"
+          name="age"
+          placeholder="Enter age"
+          value={formData.age}
+          onChange={(e) => setformData({ ...formData, age: parseInt(e.target.value) || 0 })}
+        />
+        <input
+          type="text"
+          name="city"
+          placeholder="Enter city"
+          value={formData.city}
+          onChange={(e) =>
+            setformData({ ...formData, city: e.target.value })
+          }
+        />
+        <input
+          type="text"
+          name="country"
+          placeholder="Enter country"
+          value={formData.country}
+          onChange={(e) =>
+            setformData({ ...formData, country: e.target.value })
+          }
         />
         <input
           type="password"

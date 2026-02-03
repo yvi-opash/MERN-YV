@@ -2,12 +2,14 @@
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 
-const Home = () => {
+const Admin_Home = () => {
   return (
     <>
     <Header/>
     <div>
+
       HOME PAGE 
+
     </div>
 
     <Footer/>
@@ -15,4 +17,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Admin_Home

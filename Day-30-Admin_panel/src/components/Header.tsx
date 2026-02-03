@@ -29,7 +29,7 @@ const Header = () => {
         <div className="header">
             <h1>Admin Panel</h1>
             <nav className="nav-links">
-                <Link to="/">Home</Link>
+                <Link to="/admin-home">Home</Link>
                 <Link to="/users">Users</Link>
                 <Link to="/products">Products</Link>
             </nav>
