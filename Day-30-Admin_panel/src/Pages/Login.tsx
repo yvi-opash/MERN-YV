@@ -1,5 +1,5 @@
 
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import './Login.css'
 import { useState } from 'react'
 
@@ -58,6 +58,7 @@ return (
             <button type='submit'>Log In</button>
         </form>
         <p> {message} </p>
+        <Link to="/signup">Register Here</Link>
     </div>
     </div>
   )

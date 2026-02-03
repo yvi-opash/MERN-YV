@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link} from "react-router-dom";
 import './Login.css';
 
 type user = {
@@ -7,6 +7,7 @@ type user = {
   email: string;
   password: string;
   isloggin: boolean;
+  role: "user" | "admin";
 };
 
 const Signup = () => {
@@ -17,6 +18,7 @@ const Signup = () => {
     email: "",
     password: "",
     isloggin: false,
+    role: "user"
   });
 
   const [message, setMessage] = useState<string>("");
@@ -84,6 +86,7 @@ const Signup = () => {
         <button type="submit">Sign Up</button>
       </form>
       <p>{message}</p>
+      <Link to="/login">Login Here</Link>
     </div>
   );
 };
