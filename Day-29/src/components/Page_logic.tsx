@@ -112,10 +112,11 @@ const Page_logic = () => {
           >
             <option value="All Ages">All Ages</option>
             <option value="20-25">20-25 years</option>
+            <option value="26-30">26-30 years</option>
           </select>
         
         <TableContainer>
-            <option value="26-30">26-30 years</option>
+            
           <Table>
             <TableHead>
               <TableRow>
