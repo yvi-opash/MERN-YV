@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Home from './Pages/Admin_Home';
 import Userlist from  './Pages/Userlist';
-import Products from "./Pages/Products";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import User_Home from "./Pages/User_Home";
@@ -15,7 +14,6 @@ function App() {
           <Route path="/admin-home" element={<Home/>}/>
           <Route path="/user-home" element={<User_Home/>}/>
           <Route path="/users" element={<Userlist/>}/>
-          <Route path="/products" element={<Products/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path="/signup" element={<Signup/>}/> 
         </Routes>
@@ -24,4 +22,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
