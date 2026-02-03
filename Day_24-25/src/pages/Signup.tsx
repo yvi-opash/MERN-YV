@@ -1,4 +1,3 @@
-// import React, { useEffect, useState } from "react";
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 
@@ -24,9 +23,7 @@ const Signup: React.FC = () => {
   
   const  [users, setUsers] = useState<User[]>([]);
 
-
   const [message, setMessage] = useState<string>("");
-
 
   useEffect(() => {
     const storeduser = localStorage.getItem("users")
@@ -36,16 +33,6 @@ const Signup: React.FC = () => {
     }
   },[])
  
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const {name, value} = e.target;
-
-    setFormdata((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-
-  };
-
 const handleSubmit = (e: React.FormEvent) => {
   e.preventDefault();
 
@@ -59,7 +46,7 @@ const handleSubmit = (e: React.FormEvent) => {
     return;
   }
 
-  const existemail = users.some(
+const existemail = users.some(
     (user) => user.email === formdata.email
   );
 
@@ -68,7 +55,7 @@ const handleSubmit = (e: React.FormEvent) => {
     return;
   };
 
-  const updatedUsers = [...users, formdata];
+const updatedUsers = [...users, formdata];
      setUsers(updatedUsers);
 
 
@@ -96,7 +83,7 @@ const handleSubmit = (e: React.FormEvent) => {
           name="name"  
           placeholder="enter Name"
           value={formdata.name}
-          onChange={handleChange} 
+          onChange={(e) => setFormdata({...formdata, name: e.target.value})} 
         />
 
         <br /><br />
@@ -106,7 +93,7 @@ const handleSubmit = (e: React.FormEvent) => {
           name="email"  
           placeholder="enter email" 
           value={formdata.email}
-          onChange={handleChange}
+          onChange={(e) => setFormdata({...formdata, email: e.target.value})}
         />
 
         <br /><br />
@@ -116,7 +103,7 @@ const handleSubmit = (e: React.FormEvent) => {
           name="password"  
           placeholder="enter password" 
           value={formdata.password}
-          onChange={handleChange}
+          onChange={(e) => setFormdata({...formdata, password: e.target.value})}
         />
 
         <br /><br />
@@ -132,27 +119,3 @@ const handleSubmit = (e: React.FormEvent) => {
 };
 
 export default Signup;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
