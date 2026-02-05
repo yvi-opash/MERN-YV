@@ -62,7 +62,7 @@ const Signup = () => {
     setMessage("Registration successful!");
     
     setTimeout(() => {
-      navigate('/login');
+      navigate('/');
     }, 1500);
   };
 
@@ -121,7 +121,7 @@ const Signup = () => {
         <button type="submit">Sign Up</button>
       </form>
       <p>{message}</p>
-      <Link to="/login">Login Here</Link>
+      <Link to="/">Login Here</Link>
     </div>
   );
 };

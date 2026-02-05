@@ -22,7 +22,7 @@ const Header = () => {
             localStorage.setItem('users', JSON.stringify(user1));
         }
         
-        navigate('/login')
+        navigate('/')
     }
 
     return (
