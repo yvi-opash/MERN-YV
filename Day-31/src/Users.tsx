@@ -1,30 +1,31 @@
 import useFetchAllData from "./hooks/useFetchAllUsers";
-import Users from "./Users"
+
 
   interface User {
   id: number;
-  name: string;
+  title: string;
 }
 
 
 function App() {
 
 
-const { data } = useFetchAllData<User[]>(
-  "https://jsonplaceholder.typicode.com/users"
+const { data, loading, error } = useFetchAllData<User[]>(
+  "https://jsonplaceholder.typicode.com/albums  "
 );
 
   return (
     <>
-   
+    {loading && <div> Loading...</div>}
+      {error && <div> Error: {error}</div>}
       {data && (
         <ul>
           {data.map((user) => (
-            <li key={user.id}>{user.name}</li>
+            <li key={user.id}>{user.title}</li>
           ))}
         </ul>
       )}
-      <Users/>
+    
     </>
   )
 }
