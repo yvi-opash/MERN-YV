@@ -7,7 +7,7 @@ function UseMemo() {
   const [number,setNumber] = useState(0)
 
   function square(number: number) {
-    return Math.pow(number,9);
+    return Math.pow(number,2);
   };
 
 
