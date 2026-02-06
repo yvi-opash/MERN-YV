@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 const ForthStep = () => {
   return (
@@ -6,7 +6,7 @@ const ForthStep = () => {
         <div>
             <h1>Detail</h1>
             <form action="">
-                
+
             </form>
         </div>
     </>
