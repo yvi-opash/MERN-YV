@@ -7,7 +7,26 @@ import { Bar, Pie } from 'react-chartjs-2'
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement } from 'chart.js'
 import './Admin_Home.css'
 
+
+
+
+
+
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement)
+
+
+interface User {
+  name: string
+  email: string
+  password: string
+  role: 'admin' | 'user'
+  age: number
+  city?: string
+  country?: string
+  isloggin: boolean
+}
+
+
 
 const Admin_Home = () => {
   const [userCount, setUserCount] = useState(0)
@@ -27,7 +46,7 @@ const Admin_Home = () => {
       backgroundColor: [
         'rgba(255, 99, 132, 0.8)',
         'rgba(54, 162, 235, 0.8)',
-        'rgba(255, 205, 86, 0.8)',
+        'rgba(255, 230, 86, 0.8)',
         'rgba(75, 192, 192, 0.8)',
         'rgba(153, 102, 255, 0.8)'
       ]
@@ -38,8 +57,8 @@ const Admin_Home = () => {
     const users = localStorage.getItem('users')
     if(users) {
       const userData = JSON.parse(users)
-      const regularUsers = userData.filter(user => user.role !== 'admin')
-      const admins = userData.filter(user => user.role === 'admin')
+      const regularUsers = userData.filter((user: User) => user.role !== 'admin')
+      const admins = userData.filter((user: User) => user.role === 'admin')
       
       setUserCount(regularUsers.length)
       setAdminCount(admins.length)
@@ -54,7 +73,7 @@ const Admin_Home = () => {
       
       const ageGroups = { '18-25': 0, '26-35': 0, '36-45': 0, '46-55': 0, '56+': 0 }
       
-      userData.forEach(user => {
+      userData.forEach((user: User) => {
         const age = user.age
         if (age >= 18 && age <= 25) ageGroups['18-25']++
         else if (age >= 26 && age <= 35) ageGroups['26-35']++

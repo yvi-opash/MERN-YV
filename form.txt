@@ -1,0 +1,7 @@
+Step 1 → show name, age, gender
+
+Step 2 → show password fields
+
+Step 3 → show address
+
+Step 4 → show review
