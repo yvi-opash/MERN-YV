@@ -50,30 +50,37 @@ const SecoundStep = () => {
 
   return (
     <>
-      <div>
-        <h1>Second Step</h1>
-        {message && <p style={{color: 'red'}}>{message}</p>}
-        <form onSubmit={handle2Form}>
-          <input
-            type="password"
-            name="password"
-            placeholder="Enter your password"
-            value={formData.password}
-            onChange={(e) => setFormData({...formData, password: e.target.value})}
-          />
-          <input
-            type="password"
-            name="confirmPassword"
-            placeholder="Confirm your password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-
-          />
-          <button type="button" onClick={() => navigate("/")}>
-            Back
-          </button>
-          <button type="submit">Next</button>
-        </form>
+      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+          <h1 className="text-2xl font-bold mb-6 text-center">Second Step</h1>
+          {message && <p className="text-red-500 mb-4 text-center">{message}</p>}
+          <form onSubmit={handle2Form} className="space-y-4">
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+              value={formData.password}
+              onChange={(e) => setFormData({...formData, password: e.target.value})}
+              autoComplete="new-password"
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirm your password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              autoComplete="new-password"
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <div className="flex gap-4">
+              <button type="button" onClick={() => navigate("/")} className="flex-1 bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600 transition">
+                Back
+              </button>
+              <button type="submit" className="flex-1 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">Next</button>
+            </div>
+          </form>
+        </div>
       </div>
     </>
   );
